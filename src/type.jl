@@ -349,18 +349,3 @@ function Base.findlast(predicate, x::Ring)
     end
     result < 0 ? nothing : result
 end
-
-#= comparisons =#
-
-function Base.:(==)(x::Ring{T, Full}, y::Ring{T, Full}) where {T, Full}
-    length(x) === length(y) || return false
-    (n = length(x)) == 0 && return true
-    result = true
-    for i in 1:n
-        getindex(x, i) !== getindex(y, 1) && (result = false; break)
-    end
-    result
-end
-
-
-

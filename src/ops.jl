@@ -83,7 +83,7 @@ end
 
 function Base.pushfirst!(x::Ring{T, true}, @nospecialize value) where {T}
     buf(x)[lastindex(x)] = convert(T, value)
-    x.ilast = ifelse(lastidndex(1) === 1, length(x), -1 + x.last)
+    x.ilast = ifelse(lastindex(1) === 1, length(x), -1 + x.last)
     x
 end
 
